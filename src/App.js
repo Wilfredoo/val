@@ -1,11 +1,23 @@
-import './App.css';
+import React, { Component, useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import "./App.css";
+import { Outlet } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function App() {
+  const navigate = useNavigate();
+
+  const { register, handleSubmit } = useForm();
+  const [ data, setData ] = useState( "" );
+
+  useEffect( () => {
+    navigate( "../home", { replace: true } );
+  }, [] );
+
   return (
-    <div className="App">
-        <p>
-        Portfolio of Valerie Stoll
-        </p>
+    <div>
+      {/* <Nav /> */}
+      <Outlet />
     </div>
   );
 }
